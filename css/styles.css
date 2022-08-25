@@ -11,6 +11,7 @@
   --portfolio-back: #f5f5f5;
   --border-headre: #ECECEC;
   --border-list: #EEEEEE;
+  --logo-clients: #AFB1B8;  
 }
 
 body {
@@ -93,49 +94,39 @@ img {
   display: flex;
   margin-left: auto;
 }
-.list-contacts-header {
-  display: flex;
-  align-items: center;
-}
 .contacts li:not(:last-child) {
   margin-right: 50px;
 }
-.contacts a {
-  display: inline-block;
+.link-contacts-header {
+  display: flex;
   padding-top: 32px;
   padding-bottom: 32px;
-  color: var(--text-col);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  align-items: center;
+  color: var(--text-col);
 }
-.icon-letter {
+.link-contacts-header:hover,
+.link-contacts-header:focus {
+  color: var(--accent-col);
+} 
+
+.letter,
+.smartphone {
   display: inline-flex;
   margin-right: 10px;
-  width: 16px;
-  height: 12px;
 }
-.icon-smartphone {
-  display: inline-flex;
-  margin-right: 10px;
-  width: 10px;
-  height: 16px;
-}
-.letter {
-  fill: var(--text-col);
-}
+.letter,
 .smartphone {
   fill: var(--text-col);
 }
 .letter:hover,
 .smartphone:hover {
   fill: var(--accent-col);
-}
-.contacts a:hover,
-.contacts a:focus {
-  color: var(--accent-col);
-}  
+} 
+
 /* Main */
 .main-content {
   text-align: center;
@@ -147,6 +138,7 @@ img {
 .back-image {
   margin-left: auto;
   margin-right: auto;
+  max-width: 1600px;
   background-image: linear-gradient(
     to right,
     rgba(47, 48, 58, 0.4),
@@ -154,7 +146,7 @@ img {
   ), 
   url(../images/main.jpg);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
 }
 
@@ -271,9 +263,10 @@ p {
 }
 .list-team {
   display: flex;
-  text-align: center;
+  text-align: center; 
 }
 .list-item {
+  padding-bottom: 30px;
   background-color: var(--main-back);
   border-bottom: var(--text-col);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -285,7 +278,7 @@ p {
 }
 .item-text {
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 16px;
 }
 .list-team h3 {
   font-weight: 500;
@@ -300,6 +293,68 @@ p {
   line-height: 1.19;
   margin: 0;
 }
+.social-list-team {
+  display: flex;
+  justify-content: center;
+}
+.social-item-team {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+}
+.social-item-team:not(:last-child) {
+  margin-right: 10px;
+}
+.social-link-team {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  fill: var(--logo-clients);
+}
+.social-link-team:hover,
+.social-link-team:focus {
+  fill: var(--main-back);
+  border: 1px solid var(--accent-col);
+  border-radius: 50%;
+  background-color: var(--accent-col);
+}
+/* Clients */
+.section-clients {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+.list-clients {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.item-clients {
+  width: 170px;
+  height: 92px;
+}
+
+.item-clients:not(:last-child) {
+  margin-right: 30px;
+}
+.link-clients {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #AFB1B8;
+  border-radius: 5px;
+  fill: var(--logo-clients);
+}
+.link-clients:hover,
+.link-clients:focus {
+  border-color: var(--accent-col);
+  fill: var(--accent-col);
+}
+
 /* Footer */
 .back-footer {
   padding-top: 60px;
@@ -326,7 +381,7 @@ p {
 
 .footer-contacts a:hover,
 .footer-contacts a:focus {
-  color: var(--accent-col);
+  border-color: var(--accent-col);
 }
 .list-contacts a {
   color: var(--main-back);
