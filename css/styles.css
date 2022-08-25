@@ -295,6 +295,7 @@ p {
 }
 .social-list-team {
   display: flex;
+  column-gap: 10px;
   justify-content: center;
 }
 .social-item-team {
@@ -303,9 +304,7 @@ p {
   height: 44px;
   align-items: center;
 }
-.social-item-team:not(:last-child) {
-  margin-right: 10px;
-}
+
 .social-link-team {
   display: flex;
   width: 100%;
@@ -317,7 +316,6 @@ p {
 .social-link-team:hover,
 .social-link-team:focus {
   fill: var(--main-back);
-  border: 1px solid var(--accent-col);
   border-radius: 50%;
   background-color: var(--accent-col);
 }
