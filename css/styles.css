@@ -117,11 +117,9 @@ img {
 .smartphone {
   display: inline-flex;
   margin-right: 10px;
+  fill: currentColor;
 }
-.letter,
-.smartphone {
-  fill: var(--text-col);
-}
+
 .letter:hover,
 .smartphone:hover {
   fill: var(--accent-col);
@@ -266,7 +264,6 @@ p {
   text-align: center; 
 }
 .list-item {
-  padding-bottom: 30px;
   background-color: var(--main-back);
   border-bottom: var(--text-col);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -278,7 +275,7 @@ p {
 }
 .item-text {
   padding-top: 30px;
-  padding-bottom: 16px;
+  padding-bottom: 30px;
 }
 .list-team h3 {
   font-weight: 500;
@@ -291,7 +288,7 @@ p {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.19;
-  margin: 0;
+  margin-bottom: 16px;
 }
 .social-list-team {
   display: flex;
@@ -359,6 +356,11 @@ p {
   padding-bottom: 60px;
   background-color: var(--foot-back);
 }
+.container.footer {
+  display: flex;
+  align-items: baseline;
+  column-gap: 70px;
+}
 .logo-web-footer,
 .logo-footer {
   display: flex;
@@ -396,6 +398,35 @@ p {
   color: rgba(255, 255, 255, 0.6);
 }
 
+.social-title-footer {
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--main-back);
+}
+.social-list-footer {
+  display: flex;
+  column-gap: 10px;
+}
+.social-item-footer {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+}
+.social-link-footer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  fill: var(--main-back);
+}
+.social-link-footer:hover,
+.social-link-footer:focus {
+  background-color: var(--accent-col);
+}
 /* Portfolio */
 .portfolio {
   color: var(--accent-col);
@@ -428,10 +459,12 @@ p {
   letter-spacing: 0.03em;
   cursor: pointer;
 }
-.button-nav button:hover,
-.button-nav button:focus {
+.button-list .button-item:hover,
+.button-list .button-item:focus {
   background-color: var(--accent-col);
   color: var(--main-back);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
 }
 .list-portfolio {
   display: flex;
@@ -440,6 +473,9 @@ p {
 }
 .portfolio-item {
   flex-basis: calc((100% - 60px) / 3);
+}
+.portfolio-item:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .text-item {
  padding: 20px 24px; 
