@@ -11,7 +11,8 @@
   --portfolio-back: #f5f5f5;
   --border-headre: #ECECEC;
   --border-list: #EEEEEE;
-  --logo-clients: #AFB1B8;  
+  --logo-clients: #AFB1B8;
+  --backdrop: rgba(0, 0, 0, 0.2);  
 }
 
 body {
@@ -72,10 +73,8 @@ img {
 .menu-link li:not(:last-child) {
   margin-right: 50px;
 }
-.link.current {
-  color: var(--accent-col);
-}
-.menu-link a {
+
+.link {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -84,10 +83,33 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-}
 
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+/*   transition-delay: */
+}
+.link.current {
+  position: relative;
+  color: var(--accent-col);
+}
+.link.current::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content:'';
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-col);
+  transform: translateY(1px);
+}
 .menu-link a:hover,
 .menu-link a:focus {
+  color: var(--accent-col);
+}
+.link.current {
   color: var(--accent-col);
 }
 .contacts {
@@ -107,6 +129,11 @@ img {
   letter-spacing: 0.02em;
   align-items: center;
   color: var(--text-col);
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms; */
 }
 .link-contacts-header:hover,
 .link-contacts-header:focus {
@@ -118,6 +145,10 @@ img {
   display: inline-flex;
   margin-right: 10px;
   fill: currentColor;
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .letter:hover,
@@ -167,13 +198,16 @@ img {
   padding: 10px 32px;
   border-color: var(--accent-col);
   background-color: var(--accent-col);
-  color: var(--main-back);
   font-family: inherit;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: 0.06em;
   cursor: pointer;
+  color: var(--main-back);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
 }
 .main-button:hover,
 .main-button:focus {
@@ -250,6 +284,22 @@ p {
 .work-list li:not(:last-child) {
   margin-right: 30px;
 }
+.thumb-work {
+  position: relative;
+  
+}
+.thumb-work-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  color: var(--main-back);
+  background-color: rgba(47, 48, 58, 0.8); 
+}
 /* Команда */
 .section-team {
   background-color: var(--team-back);
@@ -310,12 +360,24 @@ p {
   align-items: center;
   justify-content: center;
   fill: var(--logo-clients);
+
+  transition-property: fill, background-color, border-radius;
+  transition-duration: 250ms, 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link-team:hover,
 .social-link-team:focus {
   fill: var(--main-back);
   border-radius: 50%;
   background-color: var(--accent-col);
+}
+.icon-insta,
+.icon-twitt,
+.icon-face,
+.icon-linked {
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Clients */
 .section-clients {
@@ -344,6 +406,10 @@ p {
   border: 1px solid #AFB1B8;
   border-radius: 5px;
   fill: var(--logo-clients);
+
+  transition-property: fill, border-color;
+  transition-duration: 250ms, 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link-clients:hover,
 .link-clients:focus {
@@ -424,10 +490,36 @@ p {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   fill: var(--main-back);
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link-footer:hover,
 .social-link-footer:focus {
   background-color: var(--accent-col);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backdrop);
+}
+.modal-studio {
+  position: absolute;
+  width: 528px;
+  height: 581px;
+  top: 50%;
+  left: 50%;
+  border-radius: 4px;
+  background-color: var(--main-back);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  
+  transform: translate(-50%, -50%);
+
 }
 /* Portfolio */
 .portfolio {
@@ -460,6 +552,10 @@ p {
   line-height: 1.6;
   letter-spacing: 0.03em;
   cursor: pointer;
+
+  transition-property: background-color, color, box-shadow;
+  transition-duration: 250ms, 250ms, 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-list .button-item:hover,
 .button-list .button-item:focus {
@@ -477,8 +573,10 @@ p {
 }
 .portfolio-link {
   display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.portfolio-link:hover {
+.portfolio-link:hover,
+.portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .text-item {
@@ -487,15 +585,44 @@ p {
  border-left: 1px solid var(--border-list);
  border-right: 1px solid var(--border-list); 
 }
-.list-portfolio h2 {
+.text-item h2 {
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
   margin-top: 0;
   margin-bottom: 4px;
+  color: var(--main-col);
 }
-.list-portfolio p {
+.text-item p {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.9;
+}
+.overlay-portfolio {
+  position: relative;
+  overflow: hidden;
+  
+}
+.overlay-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 63px 24px;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--main-back);
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+
+  /* transition-property: translateY; */
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-link:hover .overlay-text,
+.portfolio-link:focus .overlay-text {
+ transform: translateY(0%); 
 }
